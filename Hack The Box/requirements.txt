@@ -1,0 +1,4 @@
+pwntools
+requests
+selenium
+colorama
