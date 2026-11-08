@@ -1,51 +1,50 @@
-# Diario — Cybersecurity Research & Automation
+# Diario — Cybersecurity Notes & Labs
 
-A technical knowledge base documenting hands-on cybersecurity labs, Hack The Box exercises, Linux troubleshooting, and Python automation.
+A personal archive of cybersecurity notes, hands-on experiments, Hack The Box labs, Linux troubleshooting, and small Python scripts and automations.
 
-> **Purpose:** demonstrate a repeatable methodology for security research, exploitation in authorized lab environments, technical documentation, and automation.
+> **Purpose:** keep a practical record of what I study, test, and learn. This repository is a working notebook, not a finished software product or a collection of polished tutorials.
 
 ## Repository map
 
 | Area | Description |
 |---|---|
-| `Hack The Box/` | Machine and challenge notes from authorized HTB labs |
+| `Hack The Box/` | Machine and challenge notes, commands, findings, and proof-of-concept material from HTB labs |
 | `Parrot OS/` | Linux configuration, drivers, and troubleshooting notes |
-| `docs/` | Documentation standards and reusable write-up templates |
-| `tools/` | Reusable utilities and automation (as they are extracted from individual notes) |
-
-The existing material is being progressively standardized. Paths and naming may evolve as the repository is refactored.
+| `docs/` | Documentation guidance and reusable write-up templates |
 
 ## What you will find
 
-- **Practical security research:** reconnaissance, enumeration, vulnerability analysis, exploitation, and post-exploitation notes in intentionally vulnerable lab environments.
-- **Python automation:** scripts supporting repeatable testing and analysis.
+- **HTB lab notes:** reconnaissance, enumeration, vulnerability analysis, exploitation, and post-exploitation observations in authorized environments.
+- **Proofs of concept:** scripts, commands, and technical details kept alongside the notes when they help explain or reproduce a lab exercise.
+- **Python scripts and automation:** small utilities created while learning and experimenting.
 - **Linux administration:** setup and troubleshooting notes for Parrot OS and related tooling.
-- **Technical documentation:** commands, observations, evidence, lessons learned, and remediation context where applicable.
 
-## Standards
+The notes are primarily written in Italian and may vary in structure and level of detail. They reflect a learning process and are kept as a useful personal reference; not every entry is intended to be a standalone guide.
 
-New and updated contributions should:
+## Working principles
 
-1. State the lab, scope, assumptions, and prerequisites.
-2. Separate observed facts from hypotheses.
-3. Explain why a technique works, not only which command to run.
-4. Keep target addresses, callback endpoints, credentials, and local paths configurable.
-5. Avoid committing secrets, tokens, session cookies, or personal infrastructure details.
-6. Include dependency and execution instructions.
-7. Clearly label destructive actions and restrict testing to systems for which authorization exists.
+When adding or updating material:
+
+1. Keep enough context to understand the lab, scope, assumptions, and prerequisites.
+2. Distinguish observed results from hypotheses.
+3. Explain relevant reasoning where useful, not just the commands.
+4. Preserve lab-specific target addresses, ports, credentials, cookies, and other values when they are part of an HTB exercise and useful to reproduce or understand the PoC.
+5. Do not commit real personal credentials, live service tokens, private keys, or secrets belonging to personal or third-party infrastructure. Clearly distinguish simulated or lab-only credentials from real ones.
+6. Include dependencies and execution notes when they are relevant to running a script.
+7. Clearly identify destructive actions and keep testing within environments for which authorization exists.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [machine write-up template](docs/templates/MACHINE-WRITEUP.md).
 
 ## Responsible use
 
-All exploitation material is provided for education and authorized security testing only. Use it exclusively in Hack The Box, intentionally vulnerable environments, or systems for which you have explicit permission. Do not use these materials to access, disrupt, or damage systems without authorization.
+The exploitation material in this repository is intended for education and authorized security testing. Use it only in Hack The Box, intentionally vulnerable environments, or systems for which you have explicit permission. Do not use these materials to access, disrupt, or damage systems without authorization.
 
 ## Language
 
-The repository contains notes primarily written in Italian. New documentation may be written in English to improve accessibility, while preserving original Italian material where translation would add little value.
+The repository contains notes primarily written in Italian. Original notes are kept in their original language; English may be used for shared documentation where it is useful.
 
 ## Status
 
-This is an evolving research portfolio. Existing notes are being reviewed for reproducibility, safe configuration, dependency clarity, and consistent documentation.
+This is an evolving personal archive of notes, experiments, and hands-on cybersecurity learning. Its contents may be informal, incomplete, or specific to the lab in which they were created.
 
 ---
