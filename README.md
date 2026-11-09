@@ -1,4 +1,4 @@
-# Diario — Cybersecurity Notes & Labs
+# CyberNotebook — Cybersecurity Notes & Labs
 
 A personal archive of cybersecurity notes, hands-on experiments, Hack The Box labs, Linux troubleshooting, and small Python scripts and automations.
 
