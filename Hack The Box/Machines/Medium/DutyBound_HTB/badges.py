@@ -1,31 +1,17 @@
-import colorama
+"""Compatibilita' con gli script che importano ancora `badges` localmente."""
 
-# "colorama.Fore.COLORE" dà il colore al testo
-# "colorama.Fore.RESET" fa ritornare il colore allo stile originale
+from importlib.util import module_from_spec, spec_from_file_location
+from pathlib import Path
 
-def errore():
-    err=f"[{colorama.Fore.RED}X{colorama.Fore.RESET}]"
-    return err
+_shared_path = Path(__file__).resolve().parents[2] / "common" / "badges.py"
+_spec = spec_from_file_location("_shared_badges", _shared_path)
+_shared = module_from_spec(_spec)
+_spec.loader.exec_module(_shared)
 
-def informazione():
-    info=f"[{colorama.Fore.LIGHTBLUE_EX}*{colorama.Fore.RESET}]"
-    return info
+errore = _shared.errore
+informazione = _shared.informazione
+successo = _shared.successo
+avvertimento = _shared.avvertimento
 
-def successo():
-    ok=f"[{colorama.Fore.GREEN}+{colorama.Fore.RESET}]"
-    return ok
-
-def avvertimento():
-    warning=f"[{colorama.Fore.YELLOW}!{colorama.Fore.RESET}]"
-    return warning
-
-# main di prova
-def main():
-
-    print(errore())
-    print(informazione())
-    print(successo())
-    print(avvertimento())
-
-if __name__=='__main__':
-    main()
+if __name__ == "__main__":
+    _shared.main()
