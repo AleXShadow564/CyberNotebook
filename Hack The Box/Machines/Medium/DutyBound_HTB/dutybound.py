@@ -3,7 +3,7 @@ import argparse
 import json
 import urllib3
 # libreria per simboli colorati
-import avvisi
+import badges
 
 # disabilita messaggi di errore per SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -68,35 +68,35 @@ def main():
     target=f"{url}:{porta}{endpoint}"
 
     try:
-        print(f"{avvisi.informazione()} costruzione richiesta...")
+        print(f"{badges.informazione()} costruzione richiesta...")
         # controlla che il flag EXPLOIT sia presente nella riga di comando
         if exploit==True:
             # se presente ignora tutto il resto e attiva la funzione specifica per questa macchina
             url_exploit=f"{url}:{porta}"
-            print(f"{avvisi.avvertimento()} ATTENZIONE! il flag EXPLOIT è attivo, parametri ENDPOINT e METHOD ignorati!")
+            print(f"{badges.avvertimento()} ATTENZIONE! il flag EXPLOIT è attivo, parametri ENDPOINT e METHOD ignorati!")
             richiesta=Exploit(url=url_exploit,query=query)
         else:
             # se non presente procedi normalmente
             richiesta=requests.request(url=target,method=metodo,timeout=5,verify=False)
         
         if richiesta.status_code>=200 and richiesta.status_code<=299:
-            print(f"{avvisi.successo()} richiesta accetata correttamente")    
+            print(f"{badges.successo()} richiesta accetata correttamente")    
         else:
-            print(f"{avvisi.errore()} errore nella richiesta")
+            print(f"{badges.errore()} errore nella richiesta")
         
-        print(f"{avvisi.informazione()} {metodo} verso {target}")
-        print(f"{avvisi.informazione()} codice risposta: {richiesta.status_code}")
+        print(f"{badges.informazione()} {metodo} verso {target}")
+        print(f"{badges.informazione()} codice risposta: {richiesta.status_code}")
             
         if flag_json==True:
             risposta=FormattaJson(richiesta)
             if risposta is None:
-                print(f"{avvisi.errore()} errore nella formattazione JSON")
+                print(f"{badges.errore()} errore nella formattazione JSON")
             else:
                 print(risposta)
         else:
             print(richiesta.text)
     except:
-        print(f"{avvisi.errore()} ERRORE EXPLOIT")
+        print(f"{badges.errore()} ERRORE EXPLOIT")
 
 if __name__=='__main__':
     main()
