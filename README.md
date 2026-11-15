@@ -11,6 +11,7 @@ A personal archive of cybersecurity notes, hands-on experiments, Hack The Box la
 | `Hack The Box/` | Machine and challenge notes, commands, findings, and proof-of-concept material from HTB labs |
 | `Parrot OS/` | Linux configuration, drivers, and troubleshooting notes |
 | `docs/` | Documentation guidance and reusable write-up templates |
+| `utils/` | Small, reusable Python modules shared across scripts and experiments ([details](utils/README.md)) |
 
 ## What you will find
 
