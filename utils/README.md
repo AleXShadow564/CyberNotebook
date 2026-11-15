@@ -30,15 +30,15 @@ responsibility changes.
 
 ## Usage
 
-Import a utility from the repository root using its module path. For example:
+Import the utility module from the repository root. For example:
 
 ```python
-from utils.badges import errore, informazione, successo, avvertimento
+from utils import badges
 
-print(errore())
-print(informazione())
-print(successo())
-print(avvertimento())
+print(badges.errore())
+print(badges.informazione())
+print(badges.successo())
+print(badges.avvertimento())
 ```
 
 Run scripts from the repository root, or make sure the repository root is
