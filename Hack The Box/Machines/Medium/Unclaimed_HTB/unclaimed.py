@@ -1,7 +1,8 @@
 import requests
 import json
 import argparse
-import badges
+# cartella "utils", file "badges.py"
+from utils import badges
 
 def AcquisiciArgomenti():
     parser=argparse.ArgumentParser(description="Exploit per la macchina Unclaimed HTB")
