@@ -1,22 +1,23 @@
 import colorama
 
 # "colorama.Fore.COLORE" dà il colore al testo
-# "colorama.Fore.RESET" fa ritornare il colore allo stile originale
+# "colorama.Fore.RESET" fa ritornare il colore a quello di default
+# "colorama.Style.RESET_ALL" resetta tutto: colore,stile e colore di sfondo
 
 def errore():
-    err=f"[{colorama.Fore.RED}X{colorama.Fore.RESET}]"
+    err=f"{colorama.Style.BRIGHT}{colorama.Fore.RED}[X]{colorama.Style.RESET_ALL}"
     return err
 
 def informazione():
-    info=f"[{colorama.Fore.LIGHTBLUE_EX}*{colorama.Fore.RESET}]"
+    info=f"{colorama.Style.BRIGHT}{colorama.Fore.LIGHTBLUE_EX}[*]{colorama.Style.RESET_ALL}"
     return info
 
 def successo():
-    ok=f"[{colorama.Fore.GREEN}+{colorama.Fore.RESET}]"
+    ok=f"{colorama.Style.BRIGHT}{colorama.Fore.GREEN}[+]{colorama.Style.RESET_ALL}"
     return ok
 
 def avvertimento():
-    warning=f"[{colorama.Fore.YELLOW}!{colorama.Fore.RESET}]"
+    warning=f"{colorama.Style.BRIGHT}{colorama.Fore.YELLOW}[!]{colorama.Style.RESET_ALL}"
     return warning
 
 # main di prova
