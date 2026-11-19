@@ -23,10 +23,10 @@ def avvertimento():
 # main di prova
 def main():
 
-    print(errore())
-    print(informazione())
-    print(successo())
-    print(avvertimento())
+    print(f"simbolo di errore: {errore()}")
+    print(f"simbolo di informazione: {informazione()}")
+    print(f"simbolo di successo: {successo()}")
+    print(f"simbolo di avvertimento: {avvertimento()}")
 
 if __name__=='__main__':
     main()
