@@ -23,26 +23,61 @@ sense in a particular exercise alongside that exercise rather than here.
 
 | Module | Purpose |
 |---|---|
-| [`badges.py`](badges.py) | Provides consistent, colorized status markers for terminal output, such as errors, information, success, and warnings. |
+| [`badges.py`](badges.py) | Defines colorized terminal status symbols and helper functions to print error, information, success, and warning messages. |
 
 This list should be updated whenever a reusable module is added or its
 responsibility changes.
 
-## Usage
+## `badges.py`
 
-Import the utility module from the repository root. For example:
+The module uses [Colorama](https://pypi.org/project/colorama/) to format terminal
+output with bright, colored markers. Install the dependency with:
+
+```bash
+pip install colorama
+```
+
+### Symbol functions
+
+These functions return a formatted string containing the marker and the
+terminal color/reset codes; they do not print anything themselves.
+
+| Function | Marker | Color | Description |
+|---|---|---|---|
+| `simbolo_errore()` | `[X]` | Red | Error |
+| `simbolo_informazione()` | `[*]` | Light blue | Information |
+| `simbolo_successo()` | `[+]` | Green | Success |
+| `simbolo_avvertimento()` | `[!]` | Yellow | Warning |
+
+### Message functions
+
+These functions accept a message string, prepend the corresponding symbol,
+and print the result to the terminal. They do not return a message string.
+
+| Function | Signature | Output |
+|---|---|---|
+| `errore` | `errore(msg)` | Red `[X]` followed by the message |
+| `informazione` | `informazione(msg)` | Light-blue `[*]` followed by the message |
+| `successo` | `successo(msg)` | Green `[+]` followed by the message |
+| `avvertimento` | `avvertimento(msg)` | Yellow `[!]` followed by the message |
+
+### Example
 
 ```python
 from utils import badges
 
-print(badges.errore())
-print(badges.informazione())
-print(badges.successo())
-print(badges.avvertimento())
+# Print a complete message with its status marker.
+badges.errore("messaggio di errore")
+badges.informazione("messaggio di informazione")
+badges.successo("messaggio di successo")
+badges.avvertimento("messaggio di avvertimento")
+
+# Or retrieve a marker to compose custom output.
+print(f"{badges.simbolo_successo()} Operazione completata")
 ```
 
-Run scripts from the repository root, or make sure the repository root is
-available on Python's import path.
+Running `badges.py` directly executes its built-in demonstration: it prints
+each standalone symbol and then one example message for each status.
 
 ## Maintenance guidelines
 
