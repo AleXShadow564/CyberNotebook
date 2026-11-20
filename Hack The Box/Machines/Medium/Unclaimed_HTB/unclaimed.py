@@ -44,7 +44,7 @@ def ApriFilePayload():
             payload=file.read()
             return payload
     except:
-        print(f"{badges.errore()} errore di apertura nel file")
+        badges.errore("errore di apertura nel file")
         return
 
 def main():
@@ -62,19 +62,19 @@ def main():
     target=f"{url}:{porta}{endpoint}"
 
     try:
-        print(f"{badges.informazione()} costruzione richiesta...")
+        badges.informazione("costruzione richiesta...")
         if exploit==True:
-            print(f"{badges.avvertimento()} ATTENZIONE! il flag EXPLOIT è attivo, i parametri ENDPOINT e METHOD vengono ignorati")
+            badges.avvertimento("ATTENZIONE! il flag EXPLOIT è attivo, i parametri ENDPOINT e METHOD vengono ignorati")
             richiesta=Exploit(url=url,porta=porta,payload=payload)
         else:
             richiesta=requests.request(url=target,method=metodo,timeout=5)
         if richiesta.status_code >=200 and richiesta.status_code<=299:
-            print(f"{badges.successo()} richiesta correttamente accettata")
+            badges.successo("richiesta correttamente accettata")
         else:
-            print(f"{badges.errore()} errore nella richiesta")
-        print(f"{badges.informazione()} codice risposta: {richiesta.status_code}")
+            badges.errore("errore nella richiesta")
+        badges.informazione(f"codice risposta: {richiesta.status_code}")
         # "richiesta.request.method" per vereder il metodo corretto
-        print(f"{badges.informazione()} {richiesta.request.method} verso {target}")
+        badges.informazione(f"{richiesta.request.method} verso {target}")
         if flag_json==True:
             risposta_formmattata=FormattaRispostaJson(richiesta=richiesta)
             print(risposta_formmattata)
@@ -82,7 +82,7 @@ def main():
             print(richiesta.text)
 
     except Exception as e:
-        print(f"{badges.errore()} ERRORE EXPLOIT: {e}")
+        badges.errore(f"ERRORE EXPLOIT: {e}")
 
 if __name__=="__main__":
     main()
